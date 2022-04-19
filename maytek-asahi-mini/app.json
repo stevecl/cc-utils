@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/video",
+    "pages/auth/index",
+    "pages/answer/index",
+    "pages/test/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "朝日超感世界",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#2b2b2b",
+    "selectedColor": "#2b2b2b",
+    "backgroundColor": "#eeeeee",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "./images/tabs/home.png",
+        "selectedIconPath": "./images/tabs/home_active.png"
+      },
+      {
+        "text": "上传小票",
+        "pagePath": "pages/test/index",
+        "iconPath": "./images/tabs/home.png",
+        "selectedIconPath": "./images/tabs/home_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

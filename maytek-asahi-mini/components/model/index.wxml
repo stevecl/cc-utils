@@ -1,0 +1,4 @@
+<!--components/model/index.wxml-->
+<view class="model" animation="{{slide_up2}}" bindtap="close">
+  <slot catchtap></slot>
+</view>

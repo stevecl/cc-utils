@@ -1,0 +1,53 @@
+/* pages/index/video.wxss */
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #4B5E6B;
+  padding-top: 124rpx;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.wrap .text {
+  text-align: center;
+  font-size: 48rpx;
+	color: #2b2b2b;
+}
+
+.wrap .video {
+  margin-top: 130rpx;
+  width: 100%;
+  height: 420rpx;
+}
+
+.wrap .alert-text {
+  width: 500rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, .5) linear-gradient(0deg, #000000 0%,  #2b2b2b 100%);
+  margin: 100rpx auto 47rpx;
+}
+
+.wrap .rules {
+  font-size: 28rpx;
+  color: #2b2b2b;
+  text-align: center;
+}
+
+.wrap .rules text {
+  position: relative;
+}
+
+.wrap .rules text::after {
+  position: absolute;
+  bottom: -10rpx;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3rpx;
+  background-color: #2b2b2b;
+}

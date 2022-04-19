@@ -1,0 +1,40 @@
+<!-- banner轮播图 -->
+<banner imageList="{{bannerList}}"></banner>
+<!-- 答题 -->
+<view class="main">
+  <image class="avator"></image>
+  <text class="name">Alex</text>
+  <text class="count">剩余抽奖次数</text>
+</view>
+<view class="item">
+  <view class="item-title">
+    <text class="title">购朝日 赢惊喜</text>
+    <text>凭朝日小票，赢惊喜好礼</text>
+    <text class="btn" bindtap="changeStatus">去完成</text>
+  </view>
+  <view class="item-cover">
+  </view>
+</view>
+<!-- 视频 -->
+<view class="item">
+  <view class="item-title">
+    <text class="title">观看视频 探索独特口感</text>
+    <text>获得1次抽奖机会</text>
+    <text class="btn" bindtap="toVideo">去完成</text>
+  </view>
+  <view class="cover-name">《朝日啤酒2022 Q2宣传片》</view>
+  <view class="item-cover">
+  </view>
+</view>
+<!-- AR -->
+<view class="ar-box">
+  <text class="name">感知摩登视界</text>
+  <text class="text">AR超感体验 身临其境体验远非寻尝</text>
+  <text class="text">获取更多抽奖机会</text>
+  <text class="btn">去参加</text>
+</view>
+<model wx:if="{{isShow}}" bind:close="changeStatus">
+  <view class="wait-wrap">
+    <text class="text">content</text>
+  </view>
+</model>

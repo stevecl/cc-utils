@@ -1,0 +1,44 @@
+<view class="answer-index">
+  <image class="bg-img" src="../../images/comm/bg.png"></image>
+  <view class="body">
+    <view class="content" wx:for="{{answerList}}" wx:key="index">
+      <block wx:if="{{currentIndex == (index+1)}}">
+        <view class="serial-num">{{index+1}}/{{answerList.length}}</view>
+        <view class="name">{{item.title}}</view>
+        <view class="result" bindtap="handleSelectAnswer" data-item="{{item1}}" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+          <view class="item {{answerIndex == index1 && item1.isRight?'wrong':'right'}}"> <!--wrong right-->
+            <!-- 选择正确答案后的背景图 -->
+            <image class="right-img" wx:if="{{rightAnswer}}" src="../../images/comm/bg.png"></image>
+            <view class="{{rightAnswer?'desc':''}}">
+              <!-- 选项对错的图 x-->
+              <image wx:if="{{!rightAnswer}}" class="sort status-img" mode="widthFix" src="../../images/answer/right.png"></image>
+              <!-- <text class="sort">{{serialList[index1]}}</text> -->
+              <text class="text">{{item1.title}}</text>
+            </view>
+          </view>
+        </view>
+        <!-- 测试 -->
+        <!-- <view class="result" bindtap="handleSelectAnswer" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+          <view class="item wrong">
+            <image class="sort status-img" mode="widthFix" src="../../images/answer/wrong.png"></image>
+            <text class="text">{{item1.title}}</text>
+          </view>
+        </view>
+        <view class="result" bindtap="handleSelectAnswer" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+          <view class="item right">
+            <image class="right-img" src="../../images/comm/bg.png"></image>
+            <view class="desc">
+              <image class="sort status-img" mode="widthFix" src="../../images/answer/right.png"></image>
+              <text class="text">{{item1.title}}</text>
+            </view>
+          </view>
+        </view> -->
+      </block>
+    </view>
+    <view class="activity-rules" bindtap="handleShowRulePop">活动规则</view>
+  </view>
+  <rule-pop pop-type="rule" id="answerRulePop" show="{{visible}}" bind:close="close">
+    <text slot="ruleName">品鉴辛口  活动规则</text>
+    <view slot="ruleText">"舜发于畎亩之中，傅说举于版筑之间，胶鬲举于鱼盐之中，管夷吾举于士，孙叔敖举于海，百里奚举于市。故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。412444</view>
+  </rule-pop>
+</view>

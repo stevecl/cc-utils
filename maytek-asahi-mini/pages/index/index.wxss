@@ -1,0 +1,119 @@
+.main {
+  position: relative;
+  width: 688rpx;
+  height: 186rpx;
+  font-size: 48rpx;
+  color: #fff;
+  background-color: #060606;
+  margin: 0 auto;
+  padding-left: 192rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.wait-wrap {
+  width: 200rpx;
+  height: 300rpx;
+  background-color: #fff;
+}
+
+.main .avator {
+  position: absolute;
+  left: 52rpx;
+  top: 33rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #B31919;
+  border-radius: 50%;
+}
+
+.main .count {
+  font-size: 32rpx;
+  color: #ba131d;
+}
+
+.item {
+  width: 688rpx;
+	font-size: 24rpx;
+  color: #2b2b2b;
+  margin: 0 auto 20rpx;
+  padding: 28rpx 32rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+}
+
+.item.first {
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.item .item-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 27rpx;
+}
+
+.item .item-title .title {
+  font-size: 36rpx;
+}
+
+.item .item-title .btn {
+  position: absolute;
+  right: 0;
+}
+
+.item .cover-name {
+  margin-bottom: 10rpx;
+}
+
+.item .item-cover {
+  width: 624rpx;
+  height: 336rpx;
+  background-color: #2B2B2B;
+}
+
+.ar-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 688rpx;
+  height: 376rpx;
+  font-size: 24rpx;
+  color: #fff;
+  border-radius: 20rpx;
+  background-color: #2b2b2b;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 80rpx 0 0 40rpx;
+}
+
+.ar-box .name {
+  font-size: 56rpx;
+  margin-bottom: 18rpx;
+}
+
+.ar-box .text {
+  margin-bottom: 30rpx;
+}
+
+/* btn */
+.btn {
+  width: 168rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+	background-color: #ba131d;
+	border-radius: 32rpx;
+}
+
+/* swiper指示器 */
+.wx-swiper-dot-active {
+  width: 38rpx !important;
+  border-radius: 10rpx !important;
+}

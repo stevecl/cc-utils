@@ -1,0 +1,18 @@
+<model wx:if="{{show}}" bind:close="close">
+  <view class="rule-pop-index" style="height: {{height}};">
+    <view class="close-box"><text bindtap="close"></text></view>
+    <view class="body" >
+      <view class="content">
+        <image class="logo" src="../../images/comm/logo.png"></image>
+        <view wx:if="{{popType == 'rule'}}" class="rule-name">
+          <text class="line"></text>
+          <slot name="ruleName"></slot>
+          <text class="line"></text>
+        </view>
+        <view class="rule-content">
+          <slot name="ruleText"></slot>
+        </view>
+      </view>
+    </view>
+  </view>
+</model>

@@ -1,0 +1,15 @@
+<!--pages/auth/index.wxml-->
+<view class="container">
+  <!-- <image src="../index/image/logo.png"></image> -->
+  <view class="name"></view>
+  <button wx:if="{{isAgree}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="getUser">我已年满18周岁</button>
+  <view wx:else class="btn" bindtap="alertHandle">我已年满18周岁</view>
+  <view class="agree-text">
+    <checkbox-group bindchange="checkboxChange">
+      <label>
+        <checkbox value="true" checked="{{item.checked}}"/>
+        我同意<text class="link">《站用户协议》</text>
+      </label>
+    </checkbox-group>
+  </view>
+</view>

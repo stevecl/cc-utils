@@ -1,0 +1,17 @@
+<!--pages/index/components/banner/index.wxml-->
+  <!-- style="width: 100%;height: 100%;" -->
+<swiper
+  class="swiper-wrap"
+  circular="true"
+  indicator-dots="true"
+  autoplay="false"
+  interval="2000"
+  duration="500"
+  indicator-active-color="red"
+  indicator-color="red">
+  <block wx:for="{{imageList}}" wx:key="index" style="width: 100%;height: 100%;">
+    <swiper-item>
+      <image src="{{item.imageUrls}}" class="banner"></image>
+    </swiper-item>
+  </block>
+</swiper>
