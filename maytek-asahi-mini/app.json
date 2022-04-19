@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/video",
     "pages/auth/index",
+    "pages/index/video",
     "pages/answer/index",
-    "pages/test/index"
+    "pages/test/index",
+    "pages/auth/content"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -66,9 +66,9 @@ App({
   ...animation,
   ...globalMethods,
   onLaunch() {
-    showLoading()
+    // showLoading()
     this.post = post
-    this.checkLogin()
+    // this.checkLogin()
   },
 
   checkLogin () {

@@ -1,15 +1,18 @@
 <!--pages/auth/index.wxml-->
 <view class="container">
-  <!-- <image src="../index/image/logo.png"></image> -->
-  <view class="name"></view>
+  <image class="page-bg" src="../../images/comm/bg.png" alt=""/>
+  <image class="page-logo" src="../../images/comm/logo.png"></image>
+  <view class="text">
+    请确认您已达到法定饮酒年龄18周岁
+  </view>
   <button wx:if="{{isAgree}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="getUser">我已年满18周岁</button>
   <view wx:else class="btn" bindtap="alertHandle">我已年满18周岁</view>
   <view class="agree-text">
     <checkbox-group bindchange="checkboxChange">
       <label>
-        <checkbox value="true" checked="{{item.checked}}"/>
-        我同意<text class="link">《站用户协议》</text>
+        <checkbox value="true" checked="{{item.checked}}"/>我同意
       </label>
     </checkbox-group>
+      <text class="link" catchtap="toDetail">《朝日啤酒平台活动用户参与须知》</text>
   </view>
 </view>

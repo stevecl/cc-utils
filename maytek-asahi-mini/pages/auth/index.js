@@ -4,6 +4,11 @@ var WXBizDataCrypt = require('../../utils/RdWXBizDataCrypt.js')
 const app = getApp()
 
 let methods = {
+  toDetail () {
+    wx.navigateTo({
+      url: '/pages/auth/content',
+    })
+  },
   checkboxChange(e) {
     this.setData({
       isAgree: !!e.detail.value[0]
