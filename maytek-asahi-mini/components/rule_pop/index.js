@@ -1,4 +1,4 @@
-// components/rule_pop/index.js
+
 Component({
   /**
    * 组件的属性列表
@@ -19,6 +19,7 @@ Component({
       type: String,
       value: '80%'
     },
+    // popType 类型不同 控制文字
     popType: {
       type: String,
       value: 'rule'

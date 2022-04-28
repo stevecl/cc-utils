@@ -1,0 +1,51 @@
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="record-index">
+  <view class="tab-wrap">
+    <view class="tab {{tabType == item.value?'tab-active':''}}" wx:for="{{tabList}}" wx:key="value" bindtap="handleChangeTab" data-tab-type="{{item.value}}">{{item.text}}</view>
+  </view>
+  <view class="body">
+    <view class="type-wrap">
+      <text class="type {{queryType == item.value?'type-active':''}}" bindtap="handleChangeType" data-query-type="{{item.value}}" wx:for="{{recordState[tabType]}}" wx:key="value">{{item.text}}</text>
+    </view>
+    <view wx:if="{{recordList.length<1}}" class="no-info">
+      <image class="empty-img" mode="widthFix" src="../../images/comm/empty.png"></image>
+      <view class="text">{{tabType == 'upload'?'暂无上传记录':'暂无抽奖记录'}}</view>
+    </view>
+    <view wx:else class="scroll-list">
+      <view class="card" wx:for="{{recordList}}" wx:key="index" bindtap="handleRecordDetail" data-index="{{index}}">
+        <!-- 上传记录 -->
+        <block wx:if="{{tabType == 'upload'}}">
+          <view class="info">
+            <view class="status {{item.isDiscern==0?'':'fail'}}">上传状态：{{item.isDiscern == 0?'成功':'失败'}}</view>
+            <view class="ticket-info">
+              <view>渠道： {{tools.formatListText(channelList,item.channel)}}</view>
+              <view>小票ID：{{item.numberCode}}</view>
+              <view>上传时间：{{item.addDate}}</view>
+            </view>
+          </view>
+          <view class="ticket-img">
+            <image class="img" src="{{item.ticketImageUrl}}"></image>
+            <view class="view" catchtap="showPic" data-url="{{item.ticketImageUrl}}">
+              <image class="icon" mode="widthFix" src="../../images/comm/magnify.png"></image>
+            </view>
+          </view>
+        </block>
+        <!-- 抽奖记录 -->
+        <block wx:else>
+          <view class="info">
+            <view class="status">抽奖结果：{{item.prizeNameCn}}</view>
+            <view class="ticket-info">
+              <view class="{{item.state == 1 || item.state == 4?'fail':''}}">当前状态：{{tools.formatListText(recordState[tabType],item.state)}}</view>
+              <view>抽奖时间：{{item.addDate}}</view>
+              <view>来源：{{tools.formatListText(awardSource,item.activityRecordType)}}</view>
+            </view>
+          </view>
+          <view class="ticket-img">
+            <image class="img" src="{{item.prizeUrl}}"></image>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <receive-addr show="{{onlinePopVisible}}" code="{{numberCode}}" bind:close="close" bind:handleToPage="handleToPage" bind:getList="getList"></receive-addr>
+</view>

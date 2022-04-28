@@ -1,18 +1,22 @@
 import urlApi from './urls/index'
 import { showLoading, hideLoading, failMsg } from '../utils/util'
 
-const baseUrl = 'http://192.168.50.149/dev-api/'
+const env = 'dev'
+const baseUrl = 'http://192.168.50.149:8080'
 const timeout = 60 * 1000
 console.log('urlApi', urlApi)
 
 const post = (url, data, method = 'POST', headers = {}) => {
   let hasLoading = true
+  let header = { 'content-type': 'application/x-www-form-urlencoded', ...headers }
+
   if (url.indexOf('http') === -1) {
-    let { url: _url, loading = true } = urlApi[url]
-    url = baseUrl + _url
+    let { url: _url, loading = true, ip = 149, headType } = urlApi[url]
+    // url = env === 'dev' ? `http://192.168.50.${ip}:8080${_url}` : baseUrl + _url
+    url = env === 'dev' ? `http://192.168.50.177:8080${_url}` : baseUrl + _url
+    if (headType == 'json') header['content-type'] = 'application/json'
     if (loading === false) hasLoading = false
   }
-  let header = { 'content-type': 'application/x-www-form-urlencoded', ...headers }
   hasLoading && showLoading()
   return new Promise((resolve, reject) => {
     wx.request({
@@ -29,7 +33,9 @@ const post = (url, data, method = 'POST', headers = {}) => {
             return
           }
           if (result.code === 200) {
-            resolve(result.data);
+            let { data = null, rows, total } = result
+            data = data === null ? { rows, total } : data
+            resolve(data);
           } else {
             result.msg && failMsg(result.msg)
             reject(result.msg)
@@ -49,6 +55,16 @@ const post = (url, data, method = 'POST', headers = {}) => {
   })
 }
 
+const getUrl = (url) => {
+  if (url.indexOf('http') === -1) {
+    let { url: _url, loading = true, ip = 149 } = urlApi[url]
+    // url = env === 'dev' ? `http://192.168.50.${ip}:8080${_url}` : baseUrl + _url
+    url = env === 'dev' ? `http://192.168.50.177:8080${_url}` : baseUrl + _url
+  }
+  return url
+}
+
 export {
-  post
+  post,
+  getUrl
 }

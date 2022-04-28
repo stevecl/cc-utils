@@ -1,6 +1,6 @@
 <model wx:if="{{show}}" bind:close="close">
   <view class="rule-pop-index" style="height: {{height}};">
-    <view class="close-box"><text bindtap="close"></text></view>
+    <view class="close-box"><text bindtap="close" class="icon"></text></view>
     <view class="body" >
       <view class="content">
         <image class="logo" src="../../images/comm/logo.png"></image>

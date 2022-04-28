@@ -1,0 +1,8 @@
+<view class="receive-index">
+  <image class="cover" mode="widthFix" src="../../images/comm/icon.png"></image>
+  <view class="tips">
+    <view>领取成功</view>
+    <view>奖励已发到您的微信零钱中</view>
+  </view>
+  <view class="btn" bindtap="handleOk">好的</view>
+</view>

@@ -1,0 +1,62 @@
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="record-detail-index">
+  <view class="status {{recordInfo.state == 1 || recordInfo.state == 4?'fail':''}}">当前状态：{{tools.formatListText(awardState,recordInfo.state)}}</view>
+  <view class="tips">
+    <block wx:if="{{recordInfo.state == 3}}">
+      <view>您的抽奖信息正在审核中，奖品将在审核通过后发出，</view>
+      <view>请您及时关注审核状态</view>
+    </block>
+    <block wx:if="{{recordInfo.state == 4}}">
+      <view>您的抽奖信息审核未通过。 </view>
+      <view>原因：{{recordInfo.ticketApprovalRemark}}</view>
+      <view>请您重新上传小票</view>
+    </block>
+  </view>
+  <view class="btn" bindtap="handleSubscribe" wx:if="{{(recordInfo.state == 3 || recordInfo.state == 5 || recordInfo.state == 8) && !isSubscribe}}">预约提醒</view>
+  <view class="btn" bindtap="handleCopy" wx:if="{{recordInfo.state == 8}}">复制快递单号</view>
+  <view class="btn" bindtap="changeUploadVisible" wx:if="{{recordInfo.state == 4}}">重新上传</view>
+  <view class="card">
+    <view class="title">{{recordInfo.prizeNameCn}}</view>
+    <image class="product-img" src="{{recordInfo.prizeUrl}}"></image>
+    <view class="info">
+      <view class="line"></view>
+      <view class="row clearfix">
+        <view class="label">抽奖时间：</view>
+        <view class="value">{{recordInfo.addDate}}</view>
+      </view>
+      <view class="row clearfix">
+        <view class="label">领取时间：</view>
+        <view class="value" wx:if="{{recordInfo.receiveDate}}">{{recordInfo.receiveDate}}</view>
+      </view>
+      <view class="row clearfix">
+        <view class="label">来源：</view>
+        <view class="value">{{tools.formatListText(awardSource,recordInfo.activityRecordType)}}</view>
+      </view>
+      <view class="row clearfix">
+        <view class="label">上传时间：</view>
+        <view class="value">2022-12-22 12:12:12</view>
+      </view>
+      <!-- 小票 -->
+      <block wx:if="{{recordInfo.activityRecordType == 2}}">
+        <view class="row clearfix">
+          <view class="label">渠道：</view>
+          <view class="value">{{tools.formatListText(channelList,recordInfo.channel)}}</view>
+        </view>
+        <view class="row clearfix">
+          <view class="label">小票ID：</view>
+          <view class="value"><text class="text">{{recordInfo.numberCode}}</text></view>
+        </view>
+        <view class="ticket-img">
+          <image class="img" src="{{recordInfo.ticketUrl}}"></image>
+          <view class="view" catchtap="showPic" data-url="{{recordInfo.ticketUrl}}">
+            <image class="icon" mode="widthFix" src="../../images/comm/magnify.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="footer">
+    <image class="logo" mode="widthFix" src="../../images/comm/logo.png"></image>
+  </view>
+  <uploadReceipt show="{{uploadDialog}}" bind:close="changeUploadVisible" bind:submit="submitHandle"></uploadReceipt>
+</view>

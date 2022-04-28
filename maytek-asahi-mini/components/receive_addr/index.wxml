@@ -1,0 +1,19 @@
+<rule-pop popType="'shipAddress'" show="{{show}}" bind:close="close">
+  <view slot="ruleText" class="online-pop">
+    <view class="title">请填写您的收货信息</view>
+    <view class="row">
+      <text class="label">收件人</text>
+      <input class="value" type="text" value="{{addressInfo.consignee}}" placeholder="请填写收件人姓名" data-prop="consignee" bindinput="onChange"  placeholder-class="ph-style" />
+    </view>
+    <view class="row">
+      <text class="label">联系电话</text>
+      <input class="value" type="text" value="{{addressInfo.telephone}}" placeholder="请填写收件人手机号" data-prop="telephone" bindinput="onChange" placeholder-class="ph-style" />
+    </view>
+    <view class="row txtarea">
+      <text class="label">收货地址</text>
+      <textarea value="{{addressInfo.address}}" class="value" placeholder="请填写收件地址" data-prop="address" bindinput="onChange" placeholder-class="ph-style"></textarea>
+    </view>
+    <view class="tips">收货信息提交后不可修改，请确认信息无误</view>
+    <view class="btn" bindtap="handleSubmit">确认提交</view>
+  </view>
+</rule-pop>

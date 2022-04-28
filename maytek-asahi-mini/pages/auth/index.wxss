@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 152rpx;
+  padding-top: 150rpx;
   box-sizing: border-box;
 }
 
@@ -21,36 +21,38 @@
 }
 
 .container .page-logo {
-  width: 362rpx;
-  height: 250rpx;
+  width: 376rpx;
+  height: 256rpx;
 }
 
 .container .text {
   width: 468rpx;
   height: 84rpx;
   font-size: 36rpx;
+  font-weight: 600;
+  color: #2B2B2E;
   text-align: center;
   line-height: 65rpx;
-  margin: 192rpx 0 0 18rpx;
+  margin: 160rpx 0 0 18rpx;
 }
 
 .container .btn {
   display: block;
-  width: 420rpx;
-  height: 76rpx;
-  line-height: 76rpx;
-  font-size: 30rpx;
+  width: 500rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  font-size: 36rpx;
   font-weight: normal;
   color: #fff;
   text-align: center;
   background-color: #121212;
   padding: 0;
-  margin: 200rpx 0 58rpx;
+  margin: 280rpx 0 58rpx;
 }
 
 .container .agree-text {
   font-size: 24rpx;
-  color: #2C3135;
+  color: #2B2B2B;
 }
 
 .container .agree-text checkbox-group {

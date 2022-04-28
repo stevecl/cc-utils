@@ -1,0 +1,29 @@
+<!--components/uploadReceipt/index.wxml-->
+<!-- 上传小票 -->
+<rule_pop height="90%" show="{{show}}" popType="'upload'" bind:close="close">
+  <view slot="ruleText">
+    <view class="bold upload-text">请选择您购物小票的来源渠道并进行上传</view>
+    <view class="upload-type">
+      <text
+        class="{{item.value === sourceType ? 'selected' : ''}}"
+        wx:for="{{sourceTypeList}}"
+        wx:key="value"
+        bindtap="selectType"
+        data-type="{{item.value}}">{{item.text}}</text>
+    </view>
+    <view class="upload-main">
+      <image wx:if="{{uploadImageUrl}}" src="{{uploadImageUrl}}" class="preview"></image>
+      <image wx:else class="icon-select" src="./images/add.png" bindtap="selectImage"></image>
+      <view class="tools" wx:if="{{uploadImageUrl}}">
+        <view bindtap="previewImage">
+          <image src="../../images/comm/magnify.png" style="width: 40rpx;height: 40rpx;"></image>
+        </view>
+        <view class="line"></view>
+        <view bindtap="selectImage">
+          <image src="./images/update.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="{{sourceType && uploadImageUrl ? 'upload-btn' : 'upload-btn disabled'}}" bindtap="submit">提交</view>
+  </view>
+</rule_pop>

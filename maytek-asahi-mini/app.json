@@ -1,11 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/auth/index",
+    "pages/lottery/index",
+    "pages/receipt/index",
     "pages/index/video",
+    "pages/auth/index",
     "pages/answer/index",
     "pages/test/index",
-    "pages/auth/content"
+    "pages/auth/content",
+    "pages/index/ar",
+    "pages/me/index",
+    "pages/record/index",
+    "pages/recordDetail/index",
+    "pages/receive/index",
+    "pages/receipt/result",
+    "pages/lottery/result"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,9 +37,21 @@
       },
       {
         "text": "上传小票",
-        "pagePath": "pages/test/index",
-        "iconPath": "./images/tabs/home.png",
-        "selectedIconPath": "./images/tabs/home_active.png"
+        "pagePath": "pages/receipt/index",
+        "iconPath": "./images/tabs/upload.png",
+        "selectedIconPath": "./images/tabs/upload_active.png"
+      },
+      {
+        "text": "抽奖",
+        "pagePath": "pages/lottery/index",
+        "iconPath": "./images/tabs/lottery.png",
+        "selectedIconPath": "./images/tabs/lottery_active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/index",
+        "iconPath": "./images/tabs/me.png",
+        "selectedIconPath": "./images/tabs/me_active.png"
       }
     ]
   },

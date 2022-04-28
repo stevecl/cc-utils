@@ -1,0 +1,39 @@
+<!--pages/receipt/index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="wrap">
+  <image class="bg" src="../../images/comm/bg1.png"></image>
+
+  <view class="info-text">
+    <view class="tips">每日一次</view>
+    <view class="bold text">上传您在购买朝日啤酒时的</view>
+    <view class="bold text">订单截图/购物小票</view>
+    <view class="red">可获得1次抽奖机会</view>
+  </view>
+
+<view class="sample-picture-box">
+  <view class="sample-picture {{!currentIsOnline ? 'sample-offline-enter' : 'sample-offline-out'}}" bindanimationend="end">
+    <image src="./images/offline.png"></image>
+    <image src="./images/icon-right.png" class="icon icon-right" bindtap="changeStatusOfLine"></image>
+  </view>
+
+  <view class="sample-picture {{currentIsOnline ? 'sample-online-enter' : 'sample-online-out'}}" bindanimationend="end">
+    <image src="./images/online.png" style="width: 356rpx;"></image>
+    <image src="./images/icon-left.png" class="icon icon-left" bindtap="changeStatusOfLine"></image>
+  </view>
+</view>
+
+  <view class="footer">
+    <text>标红部分要清晰</text>
+    <text class="btn" bindtap="changeUploadVisible">开始上传</text>
+    <text class="rule" bindtap="changeRuleVisible">活动规则</text>
+  </view>
+</view>
+<uploadReceipt show="{{uploadDialog}}" bind:close="changeUploadVisible" bind:submit="submitHandle"></uploadReceipt>
+
+<!-- 上传规则 -->
+<rule_pop show="{{ruleShow}}" bind:close="changeRuleVisible">
+  <text slot="ruleName">上传规则</text>
+  <view slot="ruleText" class="ql-editor">
+    <template is="wxParse" data="{{ wxParseData:ruleText.nodes }}" />
+  </view>
+</rule_pop>

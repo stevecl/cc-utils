@@ -3,10 +3,19 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #4B5E6B;
+  /* background-color: #4B5E6B; */
   padding-top: 124rpx;
   box-sizing: border-box;
   overflow: auto;
+}
+
+.wrap .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .wrap .text {
@@ -28,7 +37,7 @@
   font-size: 36rpx;
   text-align: center;
   color: #fff;
-  background: rgba(0, 0, 0, .5) linear-gradient(0deg, #000000 0%,  #2b2b2b 100%);
+  background: linear-gradient(360deg, rgba(0, 0, 0, .5) 0%, rgba(43, 43, 43, .5) 100%);
   margin: 100rpx auto 47rpx;
 }
 
@@ -50,4 +59,44 @@
   width: 100%;
   height: 3rpx;
   background-color: #2b2b2b;
+}
+
+/* 任务完成 */
+.status-box {
+  width: 568rpx;
+  height: 784rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding-top: 42rpx;
+  box-sizing: border-box;
+}
+
+.status-box .logo {
+  width: 114rpx;
+  height: 80rpx;
+  margin-bottom: 62rpx;
+}
+
+.status-box .text {
+  font-size: 36rpx;
+  color: #BA131D;
+}
+
+.status-box .icon {
+  width: 196rpx;
+  height: 196rpx;
+  margin: 46rpx 0 100rpx;
+}
+
+.status-box .btn {
+  width: 384rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(360deg, #000000 0%, #2B2B2B 100%);
 }

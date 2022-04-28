@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "model": "../../components/model/index",
     "rule_pop": "../../components/rule_pop/index"
   }
 }

@@ -1,0 +1,10 @@
+function formatListText(source,val){
+  if(val == null || val == undefined)return
+  var text = ""
+  var obj = source.filter(function(item){return item.value == val})[0]
+  if(obj)text = obj.text
+  return text
+}
+module.exports = {
+  formatListText:formatListText
+}

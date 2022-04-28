@@ -1,0 +1,31 @@
+<view class="me-index">
+  <view class='nav-wrap'>
+    <!-- 导航栏背景图片 -->
+    <image class="nav-bg-img" src="../../images/me/bg.png" />
+    <!-- 状态栏高度：这里需要一个空的view来占位，不然用line-height就跑偏了 -->
+    <view style="height: {{statusBarHeight}}px"></view>
+    <!-- 导航栏高度，这里转换为了rpx -->
+    <view class="nav-title" style="height: {{navHeight}}px; line-height: {{navHeight}}px;">朝日超感世界</view>
+  </view>
+  <view class="body">
+    <view class="header">
+      <!-- 导航栏下面的背景图片 -->
+      <image class="bg-img" src="../../images/me/bg.png" />
+      <view class="header-info" style="top: {{navHeight + statusBarHeight + 30}}px;">
+        <image class="header-img" src="../../images/me/avatar.png" mode="widthFix"></image>
+        <view class="nickname">yy</view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="award-times">剩余抽奖次数：{{userInfo.lotteryNum}}</view>
+      <view class="op-btn">
+          <view class="btn" bindtap="handleToPage" data-type="upload">上传记录</view>
+          <view class="btn" bindtap="handleToPage" data-type="award">抽奖记录</view>
+      </view>
+    </view>
+    <view class="footer">
+      <view>电话客服：400 XXX XXX</view>
+      <view bindtap="handleNotice">《朝日啤酒平台活动用户参与须知》</view>
+    </view>
+  </view>
+</view>

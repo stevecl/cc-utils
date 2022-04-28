@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "rule-pop": "../../components/rule_pop/index"
+    "rule-pop": "../../components/rule_pop/index",
+    "tips-box": "../../components/tips_box/index"
   }
 }

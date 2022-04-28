@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "receive-addr": "../../components/receive_addr/index"
+  }
+}

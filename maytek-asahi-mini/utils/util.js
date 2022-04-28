@@ -71,7 +71,35 @@ let storage = (key, val, time) => {
     }
   }
 }
-
+/**
+ * 打开一个页面
+ * pageType 页面类型 0.tabBar类型的页面 1.普通一级页面 2.二级页面允许back返回
+ * url 页面地址
+ * params 参数可以不传
+ */
+let toPage = (pageType, url, params)=>{
+  if (pageType === 0) {
+    // console.log('打开tabBar页面：' + url)
+    wx.switchTab({
+      url: url
+    })
+  } else if (pageType === 1) {
+    // console.log('打开一级页面：' + url)
+    wx.reLaunch({
+      url: url
+    })
+  } else {
+    wx.navigateTo({
+      url: url,
+      success(){
+        console.log('打开二级页面：' + url)
+      },
+      fail(e){
+        console.log('打开二级页面失败: '+ JSON.stringify(e))
+      }
+    })
+  }
+}
 
 module.exports = {
   formatTime,
@@ -79,5 +107,6 @@ module.exports = {
   hideLoading,
   okMsg,
   failMsg,
-  storage
+  storage,
+  toPage
 }

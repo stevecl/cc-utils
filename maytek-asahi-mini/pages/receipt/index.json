@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "rule_pop": "../../components/rule_pop/index",
+    "uploadReceipt": "../../components/uploadReceipt/index"
+  }
+}

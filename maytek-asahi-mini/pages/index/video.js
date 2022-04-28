@@ -1,29 +1,54 @@
 // pages/index/video.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ruleShow: false
+    ruleShow: false,
+    statusShow: false,
+    taskIsComplete: false,
+    ruleText: ''
+  },
+
+  toActivity () {
+    wx.navigateTo({ url: '/pages/lottery/index' })
   },
 
   endHandler () {
-    console.log('播放结束')
+    console.log('播放结束', app.globalData.userInfo.userCode)
+    app.post('record', {
+      userCode: app.globalData.userInfo.userCode, // 用户userCode
+      type: 3, //  抽奖来源 0-场景体验,1-答题,2-上传小票,3-视频浏览
+      ticketNumberCode: '' // 抽奖来源编号，只有当来源是小票的时候才传值
+    }).then(res => {
+      this.setData({
+        ruleShow: false,
+        taskIsComplete: true,
+        statusShow: true
+      })
+    })
   },
 
-  open () {
-    this.setData({ruleShow: true})
-  },
   close () {
-    this.setData({ruleShow: false})
+    this.setData({ statusShow: false })
+  },
+
+  changeRuleVisible () {
+    this.setData({ ruleShow: !this.data.ruleShow })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    var WxParse = require('../../wxParse/wxParse');
+    let ruleText = await app.getConfigData('asahi.system.video')
+    ruleText = ruleText && JSON.parse(ruleText)
+    var that = this;
+    WxParse.wxParse('ruleText', 'html', ruleText, that, 5);
   },
 
   /**

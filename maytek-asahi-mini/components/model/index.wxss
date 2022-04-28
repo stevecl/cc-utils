@@ -13,3 +13,7 @@
   z-index: 999;
   opacity: 0;
 }
+.phStyle{
+  color:red !important;
+  font-size:28rpx !important;
+}

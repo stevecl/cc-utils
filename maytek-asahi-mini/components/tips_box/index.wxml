@@ -1,0 +1,12 @@
+<view class="tips-box-index">
+  <view class="body">
+    <image class="bg-img" mode="widthFix" src="../../images/comm/tips_bg.png"></image>
+    <view class="tips-content">
+      <slot name="tipsContent"></slot>
+    </view>  
+  </view>
+   <view class="tips-btn">
+    <slot name="tipsBtn"></slot>
+   </view>
+   <slot name="below"></slot>
+</view>

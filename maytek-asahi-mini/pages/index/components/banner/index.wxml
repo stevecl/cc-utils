@@ -7,11 +7,11 @@
   autoplay="false"
   interval="2000"
   duration="500"
-  indicator-active-color="red"
-  indicator-color="red">
+  indicator-active-color="#fff"
+  indicator-color="#fff">
   <block wx:for="{{imageList}}" wx:key="index" style="width: 100%;height: 100%;">
     <swiper-item>
-      <image src="{{item.imageUrls}}" class="banner"></image>
+      <image src="{{item.image}}" class="banner"></image>
     </swiper-item>
   </block>
 </swiper>

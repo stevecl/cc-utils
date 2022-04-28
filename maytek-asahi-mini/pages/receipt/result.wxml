@@ -1,0 +1,33 @@
+<!--pages/receipt/result.wxml-->
+<view class="wrap">
+  <image class="bg" src="../../images/comm/bg.png"></image>
+  <!-- 识别 等待 -->
+  <block wx:if="{{status === 'waiting'}}">
+    <view class="bold text">
+      <view>正在识别</view>
+      <view>请耐心等待</view>
+    </view>
+    <view class="bg1">
+      <image src="../../images/comm/loading.png" animation="{{rotate}}"></image>
+    </view>
+  </block>
+  <!-- 识别 成功 -->
+  <block wx:if="{{status === 'success'}}">
+    <view class="bold text">
+      <view>识别通过</view>
+      <view>恭喜您获得1次抽奖机会</view>
+    </view>
+    <image class="icon" src="../../images/comm/icon.png"></image>
+    <view class="btn" bindtap="clickHandle">参与抽奖</view>
+  </block>
+  <!-- 识别 失败 -->
+  <block wx:if="{{status === 'fail'}}">
+    <view class="bold text">
+      <view>识别未通过</view>
+      <view>请您参造上传图例重新上传</view>
+    </view>
+    <image class="icon" src="../../images/comm/fail.png"></image>
+    <view class="btn" bindtap="back">重新上传</view>
+  </block>
+</view>
+

@@ -1,0 +1,123 @@
+.record-detail-index{
+  text-align: center;
+  margin: 0 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  position: relative;
+}
+.record-detail-index .status{
+  width: 688rpx;
+  height: 116rpx;
+  line-height: 116rpx;
+  background-color: rgba(43, 43, 43, 0.1);
+  border-radius: 16rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: 600;
+  color: #2B2B2B;
+  margin: 40rpx auto 20rpx;
+}
+.record-detail-index .status.fail{
+  background-color: rgba(186,19,29,0.1);
+  color: #BA131D;
+}
+.record-detail-index .tips{
+  font-size: 24rpx;
+  color: #2B2B2B;
+  line-height: 42rpx;
+}
+.record-detail-index .btn{
+  width: 256rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  color: #fff;
+  background: linear-gradient(360deg, #000000 0%, #2B2B2B 100%);
+  margin: 22rpx auto 48rpx;
+}
+.record-detail-index .card{
+  padding: 46rpx;
+  background-color: #ffffff;
+}
+.record-detail-index .card .title{
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2B2B2B;
+}
+.record-detail-index .card .product-img{
+  width: 248rpx;
+  height: 248rpx;
+  border-radius: 16rpx;
+  margin: 38rpx 0;
+}
+.record-detail-index .card .info{
+}
+.record-detail-index .card .info .line{
+  width: 100%;
+  height: 4rpx;
+  background-color: rgba(43, 43, 43, 0.1);
+  margin-bottom: 26rpx;
+}
+.record-detail-index .card .row{
+  /* display: flex;
+  justify-content: space-between; */
+  margin-bottom: 12rpx;
+  font-size: 24rpx;
+  color: rgba(43, 43, 43, 0.5);
+}
+.record-detail-index .card .clearfix::before,
+  .record-detail-index .card .clearfix::after{
+    display: table;
+    content: "";
+    clear: both;
+}
+.record-detail-index .card .row .label{
+  float: left;
+  width: 120rpx;
+  text-align: left;
+}
+.record-detail-index .card .row .value{
+  float: right;
+  width: calc(100% - 130rpx);
+  text-align: right;
+  word-break: break-all;
+}
+.record-detail-index .card .row .value .text{
+  display: inline-block;
+  text-align: justify;
+}
+/* 小票 */
+.record-detail-index .card .ticket-img{
+  position: relative;
+  width: 100%;
+  height: 180rpx;
+  margin-top: 18rpx;
+}
+.record-detail-index .card .ticket-img .img{
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+.record-detail-index .card .ticket-img .view{
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+  width: 100%;
+  line-height: 42rpx;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+}
+.record-detail-index .card .view .icon{
+  width: 32rpx;
+}
+.record-detail-index .footer{
+  padding-top: 412rpx;
+}
+.record-detail-index .footer .logo{
+  width: 114rpx;
+  position: absolute;
+  bottom: 68rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

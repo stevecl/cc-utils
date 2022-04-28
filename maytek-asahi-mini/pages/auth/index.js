@@ -26,37 +26,34 @@ let methods = {
   checkStatus () {
     let { userInfo, encryptedData, iv } = this.data
     if (userInfo && encryptedData) {
-      let { avatarUrl: headimgurl, city, country, province, gender: sex, language, nickName: nickname } = userInfo
+      let { avatarUrl: imageUrl, gender, language, nickName } = userInfo
       let { appid: openAppid, sessionKey: session_key, unionid, openid } = app.globalData
-      let param = { city, country, province, headimgurl, nickname, sex, openAppid, session_key, unionid, openid, encryptedData, iv, mallName: "志驿互动" }
-      return console.log('this.data', this.data, param)
-      app.post('login', {
-        userInfo: JSON.stringify(param)
-      }).then(res => {
-        console.log('res', res)
-        let { possessor, userCode } = res
+      let param = { numberCode: '', openid, nickName, imageUrl, phone: this.data.phone }
+      // return console.log('this.data', this.data, param)
+      app.post('editUserVo', param).then(res => {
+        let userCode = res
         let user = {
-          nickname,
-          headimgurl,
-          country,
-          province,
-          city,
-          sex,
-          possessor,
+          openid,
+          nickName,
+          imageUrl,
+          gender,
+          userCode,
           userCode,
           phone: this.data.phone
         }
         console.log('user', user)
+        app.globalData.userInfo = user
+        storage('session_key', session_key)
         storage('user', JSON.stringify(user))
-
-        let pages = getCurrentPages();
-        let prevPage = pages[pages.length - 2]; //上一页面
-        if(prevPage.route === "activity/pages/skyLight/skyLight"){
-          if (prevPage.onLoad) {
-            prevPage.onLoad({ loginStatus: "ok" })
-          }
-        }
         app.back()
+
+        // let pages = getCurrentPages();
+        // let prevPage = pages[pages.length - 2]; //上一页面
+        // if(prevPage.route === "activity/pages/skyLight/skyLight"){
+        //   if (prevPage.onLoad) {
+        //     prevPage.onLoad({ loginStatus: "ok" })
+        //   }
+        // }
       })
     }
   },

@@ -1,0 +1,99 @@
+/* pages/lottery/index.wxss */
+.wrap {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 116rpx 0 56rpx;
+}
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.info-text {
+  text-align: center;
+  font-size: 24rpx;
+  color: #2b2b2b;
+}
+
+.info-text .count {
+  font-size: 48rpx;
+  color: #BA131D;
+}
+/* 抽奖转盘 */
+.dial {
+  position: relative;
+  width: 750rpx;
+  height: 808rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 46rpx auto 34rpx;
+  box-sizing: border-box;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  /* display: unset; */
+}
+
+.dial .bg {
+  position: absolute;
+  /* z-index: 2; */
+}
+
+.dial_wrap {
+  position: relative;
+  width: 556rpx;
+  height: 556rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dial_wrap_content {
+  position: relative;
+  width: 444rpx;
+  height: 444rpx;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .btn {
+  width: 480rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(360deg, #000000 0%, #2B2B2B 100%);
+  margin: 42rpx auto 38rpx;
+}
+
+.footer .rule {
+  border-bottom: 3rpx solid #2B2B2B;
+}
+
+
+.circlar path{ 
+  fill: none; 
+}
+.circlar{
+  width: 300px;
+  height: 300px;
+  margin: 100px;
+}
+.circlar svg{
+  display: block;
+  overflow: visible;
+}

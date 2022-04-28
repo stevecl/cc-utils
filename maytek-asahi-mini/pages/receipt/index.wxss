@@ -1,0 +1,144 @@
+/* pages/receipt/index.wxss */
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 58rpx 0 48rpx;
+  box-sizing: border-box;
+}
+
+.info-text {
+  text-align: center;
+  font-size: 36rpx;
+  color: #2b2b2b;
+  margin-bottom: 40rpx;
+}
+
+.info-text .tips {
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+}
+
+.info-text .text {
+  font-size: 48rpx;
+}
+
+.info-text .red {
+  font-size: 36rpx;
+  color: #BA131D;
+  margin-top: 10rpx;
+}
+/* 示例图片 */
+.sample-picture-box {
+  position: relative;
+  width: 100%;
+  height: 608rpx;
+  overflow: hidden;
+}
+.sample-picture {
+  position: relative;
+  width: 556rpx;
+  height: 608rpx;
+  font-size: 32rpx;
+  text-align: center;
+  margin: 10rpx auto 0;
+}
+
+.sample-offline-enter {
+  animation: left-enter 500ms ease forwards;
+}
+.sample-offline-out {
+  animation: left-out 500ms ease forwards;
+}
+.sample-online-enter {
+  top: -100%;
+  animation: right-enter 500ms ease forwards;
+}
+.sample-online-out {
+  top: -100%;
+  animation: right-out 500ms ease forwards;
+}
+
+.sample-picture image {
+  width: 100%;
+  height: 100%;
+}
+
+.sample-picture .icon {
+  position: absolute;
+  width: 40rpx;
+  height: 70rpx;
+  top: 240rpx;
+}
+
+.sample-picture .icon-left {
+  left: 0;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .btn {
+  width: 480rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(360deg, #000000 0%, #2B2B2B 100%);
+  margin: 42rpx auto 38rpx;
+}
+
+.footer .rule {
+  border-bottom: 3rpx solid #2B2B2B;
+}
+
+
+
+/* animation */
+@keyframes left-enter {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes left-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+@keyframes right-enter {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes right-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}

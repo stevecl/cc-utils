@@ -1,0 +1,139 @@
+.record-index {}
+.record-index .body{
+  margin: 0 26rpx;
+}
+/* 上传记录 抽奖记录按钮 */
+.record-index .tab-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2rpx solid #DCDCDC;
+  padding-top: 50rpx;
+  padding-bottom: 18rpx;
+}
+
+.record-index .tab-wrap .tab {
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #000;
+  position: relative;
+  padding: 0 18rpx 0;
+}
+.record-index .tab-active{
+  color: #BA131D !important;
+}
+.record-index .tab-wrap .tab-active::after {
+  display: inline-block;
+  content: "";
+  width: 100%;
+  height: 6rpx;
+  background-color: #BA131D;
+  position: absolute;
+  left: 0;
+  bottom: -18rpx;
+}
+/* 上传记录 抽奖记录按钮 结束*/
+
+/* 类型 */
+.record-index .type-wrap{
+  margin: 36rpx 0 18rpx;
+  padding-bottom: 18rpx;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.record-index .type-wrap .type{
+  display: inline-block;
+  width: 144rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  background-color: rgba(43,43,43,0.1);
+  color: rgba(43,43,43,0.2);
+  border-radius: 28rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin-right: 16rpx;
+}
+.record-index .type-wrap .type-active{
+  background-color: #BA131D;
+  color: #fff;
+}
+/* 暂无数据 */
+.record-index .no-info{
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #8D8D8D;
+  margin-top: 254rpx;
+  text-align: center;
+}
+.record-index .no-info .empty-img{
+  width: 312rpx;
+}
+.record-index .no-info .text{
+  margin-top: 14rpx;
+}
+.record-index .scroll-list{
+  height: calc(100vh - 240rpx);
+  overflow-y: scroll;
+}
+.record-index .scroll-list .loading-tips{
+  color: #9FA0A1;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.record-index .card{
+  background: #FFFFFF;
+  box-shadow: 0px 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  padding: 18rpx 18rpx 18rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.record-index .card .status{
+  font-size: 28rpx;
+  color: #000000;
+  font-weight: 600;
+  margin-top: 14rpx;
+}
+.record-index .card .status.fail,
+.record-index .card .ticket-info .fail{
+  color: #BA131D;
+}
+.record-index .card .ticket-info{
+  font-size: 20rpx;
+  color: rgba(43, 43, 43, 0.5);
+  margin-top: 18rpx;
+  line-height: 34rpx;
+}
+.record-index .card .ticket-img{
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+.record-index .card .img{
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+.record-index .card .view{
+  position: absolute;
+  height: 42rpx;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+  width: 100%;
+  line-height: 42rpx;
+  bottom: 0;
+  padding: 8rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+}
+.record-index .card .view .icon{
+  width: 32rpx;
+}

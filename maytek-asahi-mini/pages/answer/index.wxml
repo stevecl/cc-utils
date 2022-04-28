@@ -1,44 +1,45 @@
+<import src="../../wxParse/wxParse.wxml"/>
 <view class="answer-index">
   <image class="bg-img" src="../../images/comm/bg.png"></image>
   <view class="body">
-    <view class="content" wx:for="{{answerList}}" wx:key="index">
-      <block wx:if="{{currentIndex == (index+1)}}">
-        <view class="serial-num">{{index+1}}/{{answerList.length}}</view>
-        <view class="name">{{item.title}}</view>
-        <view class="result" bindtap="handleSelectAnswer" data-item="{{item1}}" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
-          <view class="item {{answerIndex == index1 && item1.isRight?'wrong':'right'}}"> <!--wrong right-->
-            <!-- 选择正确答案后的背景图 -->
-            <image class="right-img" wx:if="{{rightAnswer}}" src="../../images/comm/bg.png"></image>
-            <view class="{{rightAnswer?'desc':''}}">
-              <!-- 选项对错的图 x-->
-              <image wx:if="{{!rightAnswer}}" class="sort status-img" mode="widthFix" src="../../images/answer/right.png"></image>
-              <!-- <text class="sort">{{serialList[index1]}}</text> -->
-              <text class="text">{{item1.title}}</text>
+    <view class="content" hidden="{{!questionList.length}}">
+      <view class="serial-num">{{questionIndex+1}}/{{questionList.length}}</view>
+      <view class="name">{{questionInfo.question}}</view>
+      <view hidden="{{isAnswered}}" class="result" bindtap="handleSelectAnswer" data-item="{{item1}}" data-index="{{index1}}" wx:for="{{questionInfo.answers}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+        <view wx:if="{{item1.answer}}" class="item {{item1.selected?item1.isRight?'right':'wrong':''}}">
+          <!-- 选择正确答案后的背景图 -->
+          <image class="right-img" hidden="{{!item1.selected || !item1.isRight}}" src="../../images/answer/right_bg.png"></image>
+          <view class="desc">
+            <!-- 选项对错的图 x-->
+            <view hidden="{{!item1.selected}}">
+              <image hidden="{{!item1.isRight}}" class="sort status-img" mode="widthFix" src="../../images/answer/right.png"></image>
+              <image hidden="{{item1.isRight}}" class="sort status-img" mode="widthFix" src="../../images/answer/wrong.png"></image>
             </view>
+            <text hidden="{{item1.selected}}" class="sort">{{serialList[index1]}}</text>
+            <text class="text">{{item1.answer}}</text>
           </view>
         </view>
-        <!-- 测试 -->
-        <!-- <view class="result" bindtap="handleSelectAnswer" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
-          <view class="item wrong">
-            <image class="sort status-img" mode="widthFix" src="../../images/answer/wrong.png"></image>
-            <text class="text">{{item1.title}}</text>
+      </view>
+      <!-- 答案解析 -->
+      <view hidden="{{!isAnswered}}">
+        <tips-box>
+          <view slot="tipsContent" class="answer-tips-content">
+            <view class="tips-title">正确答案</view>
+            <view class="answer-text" hidden="{{!rightAnswerText}}">{{rightAnswerText}}</view>
+            <view class="answer-desc" hidden="{{!questionInfo.tips}}">{{questionInfo.tips}}</view>
+            <image class="answer-logo" mode="widthFix" src="../../images/comm/logo.png"></image>
           </view>
-        </view>
-        <view class="result" bindtap="handleSelectAnswer" wx:for="{{item.resultList}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
-          <view class="item right">
-            <image class="right-img" src="../../images/comm/bg.png"></image>
-            <view class="desc">
-              <image class="sort status-img" mode="widthFix" src="../../images/answer/right.png"></image>
-              <text class="text">{{item1.title}}</text>
-            </view>
-          </view>
-        </view> -->
-      </block>
+          <view slot="tipsBtn" bindtap="handleNextQuestion">{{questionIndex+1 == questionList.length?'完成任务':'下一题'}}</view>
+        </tips-box>
+      </view>
     </view>
+
     <view class="activity-rules" bindtap="handleShowRulePop">活动规则</view>
   </view>
-  <rule-pop pop-type="rule" id="answerRulePop" show="{{visible}}" bind:close="close">
-    <text slot="ruleName">品鉴辛口  活动规则</text>
-    <view slot="ruleText">"舜发于畎亩之中，傅说举于版筑之间，胶鬲举于鱼盐之中，管夷吾举于士，孙叔敖举于海，百里奚举于市。故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。412444</view>
+  <rule-pop id="answerRulePop" show="{{visible}}" bind:close="close">
+    <text slot="ruleName">问卷答题 活动规则</text>
+    <view slot="ruleText" class="ql-editor">
+      <template is="wxParse" data="{{ wxParseData:ruleText.nodes }}" />
+    </view>
   </rule-pop>
 </view>

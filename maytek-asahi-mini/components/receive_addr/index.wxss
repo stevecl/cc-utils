@@ -1,0 +1,60 @@
+/* 实物收货地址 */
+.online-pop{
+  font-family: PingFang-SC-Bold, PingFang-SC;
+}
+.online-pop .title{
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #2B2B2B;
+  margin: 56rpx;
+  text-align: center;
+}
+.online-pop .row{
+  background-color: #F5F5F5;
+  border-radius: 16rpx;
+  padding: 26rpx;
+  font-size: 28rpx;
+  margin-bottom: 32rpx;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2rpx;
+}
+.online-pop .row .label{
+  font-weight: bold;
+  color: #2B2B2B;
+  width: 146rpx;
+}
+.online-pop .row .value{
+  width: 408rpx;
+  color: rgba(43, 43, 43, 0.5);
+	font-size:28rpx;
+}
+/* placeholder样式 */
+.ph-style{
+  color: rgba(43, 43, 43, 0.5);
+  font-size:28rpx;
+}
+.online-pop .row.txtarea{
+  height: 144rpx;
+}
+.online-pop .row.txtarea .label,
+.online-pop .row.txtarea .value{
+  height: 100%;
+}
+.online-pop .tips{
+  font-size: 24rpx;
+  color: #BA131D;
+  margin-bottom: 54rpx;
+  padding-top: 18rpx;
+  text-align: center;
+}
+.online-pop .btn{
+  width: 400rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+  background: linear-gradient(360deg, #000000 0%, #2B2B2B 100%);
+  color: #fff;
+  margin: 0 auto;
+  font-size: 36rpx;
+}

@@ -1,7 +1,7 @@
 /* pages/index/components/banner/index.wxss */
 .swiper-wrap {
   width: 100%;
-  height: 500rpx;
+  height: 732rpx;
 }
 .swiper-wrap .banner{
   width: 100%;

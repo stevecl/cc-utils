@@ -1,40 +1,54 @@
 <!-- banner轮播图 -->
-<banner imageList="{{bannerList}}"></banner>
-<!-- 答题 -->
+<banner imageList="{{pageConfig.slide}}"></banner>
+<!-- 用户信息 -->
 <view class="main">
-  <image class="avator"></image>
-  <text class="name">Alex</text>
-  <text class="count">剩余抽奖次数</text>
+  <image class="bg" src="./images/bg_card.png"></image>
+  <view class="content">
+    <image class="avator" src="{{userInfo.imageUrl || './images/avatar.png'}}"></image>
+    <text class="name">{{userInfo.nickName}}</text>
+    <text class="count">剩余抽奖次数：{{userInfo.lotteryNum}}</text>
+  </view>
 </view>
-<view class="item">
+<!-- 上传小票 -->
+<view class="item first">
   <view class="item-title">
     <text class="title">购朝日 赢惊喜</text>
     <text>凭朝日小票，赢惊喜好礼</text>
-    <text class="btn" bindtap="changeStatus">去完成</text>
+    <text class="btn disabled" bindtap="toPage" data-link="/pages/receipt/index">去完成 ></text>
   </view>
   <view class="item-cover">
+    <image src="{{pageConfig.ticket.image}}"></image>
   </view>
 </view>
 <!-- 视频 -->
 <view class="item">
-  <view class="item-title">
+  <view class="item-title" style="margin-bottom: 0;">
     <text class="title">观看视频 探索独特口感</text>
     <text>获得1次抽奖机会</text>
-    <text class="btn" bindtap="toVideo">去完成</text>
+    <text class="btn {{userInfo.userMember.isVideo ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/index/video">{{userInfo.userMember.isVideo ? '已完成' : '去完成'}} ></text>
   </view>
   <view class="cover-name">《朝日啤酒2022 Q2宣传片》</view>
   <view class="item-cover">
+    <image src="{{pageConfig.video.image}}"></image>
+  </view>
+</view>
+<!-- 答题 -->
+<view class="item">
+  <view class="item-title">
+    <text class="title">探秘朝日</text>
+    <text>答题即有礼品</text>
+    <text class="btn {{userInfo.userMember.isAnswer ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/answer/index">{{userInfo.userMember.isAnswer ? '已完成' : '去完成'}} ></text>
+  </view>
+  <view class="item-cover">
+    <image src="{{pageConfig.ccg.image}}"></image>
   </view>
 </view>
 <!-- AR -->
 <view class="ar-box">
+  <image class="bg" src="{{pageConfig.taste.image}}"></image>
   <text class="name">感知摩登视界</text>
   <text class="text">AR超感体验 身临其境体验远非寻尝</text>
   <text class="text">获取更多抽奖机会</text>
-  <text class="btn">去参加</text>
+  <!-- <text class="btn" bindtap="toPage" data-link="/pages/index/ar">去参加 ></text> -->
+  <text class="btn {{userInfo.userMember.isVr ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/index/ar">{{userInfo.userMember.isVr ? '已参加' : '去参加'}} ></text>
 </view>
-<model wx:if="{{isShow}}" bind:close="changeStatus">
-  <view class="wait-wrap">
-    <text class="text">content</text>
-  </view>
-</model>

@@ -4,7 +4,7 @@ page {
   flex-direction: column;
   align-items: center;
   background-color: #FFFFFF;
-  padding: 50rpx 30rpx 33rpx;
+  padding: 98rpx 30rpx 66rpx;
 }
 
 .title, .name {
@@ -13,16 +13,16 @@ page {
 }
 
 .name {
-  margin-bottom: 30rpx;
+  margin-bottom: 54rpx;
 }
 
 .content {
   flex: 1;
   overflow: auto;
-  margin-bottom: 30rpx;
+  margin-bottom: 46rpx;
 }
 
 .logo {
-  width: 160rpx;
+  width: 164rpx;
   height: 112rpx;
 }

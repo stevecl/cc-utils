@@ -1,0 +1,59 @@
+<!--pages/lottery/result.wxml-->
+<view class="wrap">
+  <image class="bg" src="../../images/comm/bg.png"></image>
+  <!-- 奖品展示 -->
+  <!-- 实物 -->
+  <block wx:if="{{status === 1}}">
+    <view class="bold text">
+      <view>恭喜你获得</view>
+      <view>朝日啤酒330ml*12听</view>
+    </view>
+    <view class="main">
+      <image class="bg" src="../../images/comm/tips_bg.png"></image>
+      <image class="con" src="../../images/comm/a.png"></image>
+      <text>请您及时填写收货地址, </text>
+      <text>奖品将在人工审核通过后进行派送</text>
+    </view>
+    <view class="btn" bindtap="changeEditVisible">填写收货地址</view>
+  </block>
+  <!-- 红包 -->
+  <block wx:if="{{status === 2}}">
+    <view class="bold text">
+      <view>恭喜你获得</view>
+      <view>5元微信红包</view>
+    </view>
+    <view class="main center">
+      <image class="bg" src="../../images/comm/tips_bg.png"></image>
+      <image class="con" src="../../images/comm/ic_redpacket.png" style="width: 240rpx;height: 370rpx;margin-bottom: 0;"></image>
+    </view>
+    <view class="btn">提取到微信红包</view>
+  </block>
+  <!-- 未中奖 -->
+  <block wx:if="{{status === 3}}">
+    <view class="bold text">
+      <view>很遗憾，</view>
+      <view>本次未中奖</view>
+    </view>
+    <view class="main center">
+      <image class="bg" src="../../images/comm/tips_bg.png"></image>
+      <image class="con" src="../../images/comm/none.png" style="width: 348rpx;height: 302rpx;margin-bottom: 0;"></image>
+    </view>
+    <view class="btn">好的</view>
+  </block>
+  <!-- 红包 提现 -->
+  <block wx:if="{{false}}">
+    <view class="bold text">
+      <view>领取成功！</view>
+      <view>奖励已发到您的微信零钱中</view>
+    </view>
+    <image class="icon" src="../../images/comm/icon.png"></image>
+    <view class="btn">好的</view>
+  </block>
+</view>
+
+<!-- 填写收获地址 -->
+<rule_pop height="90%" show="{{editAddress}}" popType="'edit'" bind:close="changeEditVisible">
+  <view slot="ruleText">
+    <view class="bold edit-title">请填写您的收货信息</view>
+  </view>
+</rule_pop>
