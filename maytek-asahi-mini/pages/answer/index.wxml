@@ -4,7 +4,9 @@
   <view class="body">
     <view class="content" hidden="{{!questionList.length}}">
       <view class="serial-num">{{questionIndex+1}}/{{questionList.length}}</view>
-      <view class="name">{{questionInfo.question}}</view>
+      <view class="name">
+        <view class="text">{{questionInfo.question}}</view>
+      </view>
       <view hidden="{{isAnswered}}" class="result" bindtap="handleSelectAnswer" data-item="{{item1}}" data-index="{{index1}}" wx:for="{{questionInfo.answers}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
         <view wx:if="{{item1.answer}}" class="item {{item1.selected?item1.isRight?'right':'wrong':''}}">
           <!-- 选择正确答案后的背景图 -->
@@ -39,7 +41,7 @@
   <rule-pop id="answerRulePop" show="{{visible}}" bind:close="close">
     <text slot="ruleName">问卷答题 活动规则</text>
     <view slot="ruleText" class="ql-editor">
-      <template is="wxParse" data="{{ wxParseData:ruleText.nodes }}" />
+      <template is="wxParse" data="{{ wxParseData:ruleText }}" />
     </view>
   </rule-pop>
 </view>

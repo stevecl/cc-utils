@@ -9,7 +9,6 @@
   align-items: center;
   border-bottom: 2rpx solid #DCDCDC;
   padding-top: 50rpx;
-  padding-bottom: 18rpx;
 }
 
 .record-index .tab-wrap .tab {
@@ -18,10 +17,11 @@
   font-weight: 600;
   color: #000;
   position: relative;
-  padding: 0 18rpx 0;
+  padding: 18rpx;
 }
 .record-index .tab-active{
   color: #BA131D !important;
+  /* border-bottom: 4rpx solid #BA131D; */
 }
 .record-index .tab-wrap .tab-active::after {
   display: inline-block;
@@ -31,7 +31,7 @@
   background-color: #BA131D;
   position: absolute;
   left: 0;
-  bottom: -18rpx;
+  bottom: 0;
 }
 /* 上传记录 抽奖记录按钮 结束*/
 
@@ -49,7 +49,6 @@
   line-height: 56rpx;
   background-color: rgba(43,43,43,0.1);
   color: rgba(43,43,43,0.2);
-  border-radius: 28rpx;
   text-align: center;
   font-size: 28rpx;
   margin-right: 16rpx;

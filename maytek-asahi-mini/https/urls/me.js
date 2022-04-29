@@ -23,4 +23,10 @@ export default {
     ip: 177,
     txt: '获取抽奖记录详情'
   },
+  getSysConfigCache: {
+    url: '/user/userLogin/getSysConfigCache',
+    loading: true,
+    ip: 177,
+    txt: '获取电话客服'
+  }
 }

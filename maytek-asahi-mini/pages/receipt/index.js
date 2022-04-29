@@ -31,7 +31,7 @@ Page({
     maxUploadSize: 4 * 1024 * 1024,
     uploadDialog: false,
     ruleShow: false,
-    currentIsOnline: true,
+    currentIsOnline: false,
     ruleText: ''
   },
 
@@ -39,11 +39,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad (options) {
-    var WxParse = require('../../wxParse/wxParse');
-    let ruleText = await app.getConfigData('asahi.system.ticket')
-    ruleText = ruleText&&JSON.parse(ruleText)
-    var that = this;
-    WxParse.wxParse('ruleText', 'html', ruleText, that, 5);
+    await app.getRuleText("asahi.system.ticket")
+    this.setData({ruleText:app.globalData.ruleText.nodes})
   },
 
   end () {

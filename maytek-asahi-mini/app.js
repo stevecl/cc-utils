@@ -29,6 +29,7 @@ let globalMethods = {
    *    asahi.system.ccg 答题说明,
    *    asahi.system.video  视频说明
    *    asahi.system.draw 抽奖说明
+   *    asahi.system.user 用户协议
    */
   getConfigData (key = '') {
     return new Promise((resolve, reject) => {
@@ -73,6 +74,23 @@ let globalMethods = {
     }
     wx.navigateBack(param)
   },
+  getRuleText(type){
+    var that = this;
+    return new Promise(async(resolve,reject)=>{
+      // 格式：WxParse.wxParse(参数1, 参数2, 参数3, 参数4, 参数5);
+      // 参数说明：
+      // * 参数1.bindName绑定的数据名(必填)
+      // * 参数2.type可以为html或者md(必填)
+      // * 参数3.data为传入的具体数据(必填)
+      // * 参数4.target为Page对象,一般为this(必填)
+      // * 参数5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+      var WxParse = require('./wxParse/wxParse');
+      let ruleText = await this.getConfigData(type)
+      ruleText = ruleText&&JSON.parse(ruleText)
+      WxParse.wxParse('ruleText', 'html', ruleText, that, 5);
+      resolve()
+    })
+  }
 }
 
 let shareConfig = {

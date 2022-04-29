@@ -14,7 +14,12 @@
   <view class="item-title">
     <text class="title">购朝日 赢惊喜</text>
     <text>凭朝日小票，赢惊喜好礼</text>
-    <text class="btn disabled" bindtap="toPage" data-link="/pages/receipt/index">去完成 ></text>
+    <text
+      class="btn {{userInfo.userMember.isTicket ? 'disabled' : ''}}"
+      bindtap="toPage"
+      data-status="{{userInfo.userMember.isTicket}}"
+      data-link="/pages/receipt/index">{{userInfo.userMember.isTicket ? '已完成' : '去完成'}} >
+    </text>
   </view>
   <view class="item-cover">
     <image src="{{pageConfig.ticket.image}}"></image>
@@ -25,7 +30,12 @@
   <view class="item-title" style="margin-bottom: 0;">
     <text class="title">观看视频 探索独特口感</text>
     <text>获得1次抽奖机会</text>
-    <text class="btn {{userInfo.userMember.isVideo ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/index/video">{{userInfo.userMember.isVideo ? '已完成' : '去完成'}} ></text>
+    <text
+      class="btn {{userInfo.userMember.isVideo ? 'disabled' : ''}}"
+      bindtap="toPage"
+      data-status="{{userInfo.userMember.isVideo}}"
+      data-link="/pages/index/video">{{userInfo.userMember.isVideo ? '已完成' : '去完成'}} >
+    </text>
   </view>
   <view class="cover-name">《朝日啤酒2022 Q2宣传片》</view>
   <view class="item-cover">
@@ -37,7 +47,12 @@
   <view class="item-title">
     <text class="title">探秘朝日</text>
     <text>答题即有礼品</text>
-    <text class="btn {{userInfo.userMember.isAnswer ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/answer/index">{{userInfo.userMember.isAnswer ? '已完成' : '去完成'}} ></text>
+    <text
+      class="btn {{userInfo.userMember.isAnswer ? 'disabled' : ''}}"
+      bindtap="toPage"
+      data-status="{{userInfo.userMember.isAnswer}}"
+      data-link="/pages/answer/index">{{userInfo.userMember.isAnswer ? '已完成' : '去完成'}} >
+    </text>
   </view>
   <view class="item-cover">
     <image src="{{pageConfig.ccg.image}}"></image>
@@ -50,5 +65,5 @@
   <text class="text">AR超感体验 身临其境体验远非寻尝</text>
   <text class="text">获取更多抽奖机会</text>
   <!-- <text class="btn" bindtap="toPage" data-link="/pages/index/ar">去参加 ></text> -->
-  <text class="btn {{userInfo.userMember.isVr ? 'disabled' : ''}}" bindtap="toPage" data-link="/pages/index/ar">{{userInfo.userMember.isVr ? '已参加' : '去参加'}} ></text>
+  <text class="btn {{userInfo.userMember.isVr ? 'disabled' : ''}}" bindtap="toPage" data-status="{{userInfo.userMember.isVr}}" data-link="/pages/index/ar">{{userInfo.userMember.isVr ? '已参加' : '去参加'}} ></text>
 </view>

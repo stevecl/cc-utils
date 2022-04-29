@@ -84,6 +84,7 @@
   width: 638rpx;
   height: 348rpx;
   background-color: #2B2B2B;
+  overflow: hidden;
 }
 
 .item .item-cover image {

@@ -24,7 +24,7 @@
       </view>
     </view>
     <view class="footer">
-      <view>电话客服：400 XXX XXX</view>
+      <view>电话客服：{{phone}}</view>
       <view bindtap="handleNotice">《朝日啤酒平台活动用户参与须知》</view>
     </view>
   </view>

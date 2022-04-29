@@ -25,8 +25,13 @@ Page({
   onLoad: function (options) {
     let userInfo = App.globalData.userInfo
     this.setData({userInfo})
+    this.init()
   },
-
+  init(){
+    App.post("getSysConfigCache",{key:"asahi.cs.phone"}).then(res=>{
+      this.setData({phone:res})
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

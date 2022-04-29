@@ -13,7 +13,7 @@ const post = (url, data, method = 'POST', headers = {}) => {
   if (url.indexOf('http') === -1) {
     let { url: _url, loading = true, ip = 149, headType } = urlApi[url]
     // url = env === 'dev' ? `http://192.168.50.${ip}:8080${_url}` : baseUrl + _url
-    url = env === 'dev' ? `http://192.168.50.177:8080${_url}` : baseUrl + _url
+    url = env === 'dev' ? `http://192.168.50.149:8080${_url}` : baseUrl + _url
     if (headType == 'json') header['content-type'] = 'application/json'
     if (loading === false) hasLoading = false
   }

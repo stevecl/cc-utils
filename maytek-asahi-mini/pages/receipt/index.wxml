@@ -34,6 +34,6 @@
 <rule_pop show="{{ruleShow}}" bind:close="changeRuleVisible">
   <text slot="ruleName">上传规则</text>
   <view slot="ruleText" class="ql-editor">
-    <template is="wxParse" data="{{ wxParseData:ruleText.nodes }}" />
+    <template is="wxParse" data="{{ wxParseData:ruleText }}" />
   </view>
 </rule_pop>

@@ -4,6 +4,7 @@
   height: 100%;
   overflow: auto;
   padding: 116rpx 0 56rpx;
+  box-sizing: border-box;
 }
 .bg {
   position: fixed;

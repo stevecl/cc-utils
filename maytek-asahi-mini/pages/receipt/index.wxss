@@ -47,11 +47,12 @@
 }
 .sample-picture {
   position: relative;
-  width: 556rpx;
+  width: 586rpx;
   height: 608rpx;
   font-size: 32rpx;
   text-align: center;
   margin: 10rpx auto 0;
+  overflow-y: hidden;
 }
 
 .sample-offline-enter {
@@ -70,7 +71,7 @@
 }
 
 .sample-picture image {
-  width: 100%;
+  width: 556rpx;
   height: 100%;
 }
 
@@ -83,6 +84,9 @@
 
 .sample-picture .icon-left {
   left: 0;
+}
+.sample-picture .icon-right {
+  right: 0;
 }
 
 /* footer */

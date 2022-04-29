@@ -3,7 +3,7 @@ import home from './home'
 import upload from './upload'
 import me from './me'
 import answer from './answer'
-import subscribe from './subscribe'
+import lottery from './lottery'
 
 export default {
   ...login,
@@ -11,5 +11,6 @@ export default {
   ...upload,
   ...me,
   ...answer,
+  ...lottery,
   // ...subscribe
 }

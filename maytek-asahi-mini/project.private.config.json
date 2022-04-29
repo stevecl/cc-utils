@@ -55,6 +55,13 @@
           "query": "numberCode=4f494930316b46a48c53153be4fa5cbb",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/auth/content",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

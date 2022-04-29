@@ -1,3 +1,5 @@
+const { storage } = require('../../utils/util')
+
 // pages/index/video.js
 const app = getApp()
 
@@ -10,7 +12,8 @@ Page({
     ruleShow: false,
     statusShow: false,
     taskIsComplete: false,
-    ruleText: ''
+    ruleText: '',
+    videoUrl: '',
   },
 
   toActivity () {
@@ -44,11 +47,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    console.log('video', options)
     var WxParse = require('../../wxParse/wxParse');
     let ruleText = await app.getConfigData('asahi.system.video')
     ruleText = ruleText && JSON.parse(ruleText)
     var that = this;
     WxParse.wxParse('ruleText', 'html', ruleText, that, 5);
+    await app.getRuleText("asahi.system.video")
+    this.setData({ruleText:app.globalData.ruleText.nodes})
   },
 
   /**
@@ -62,7 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let videoUrl = storage('video_url')
+    let status = storage('video_status')
+    this.setData({ videoUrl, taskIsComplete: status == 0 })
   },
 
   /**

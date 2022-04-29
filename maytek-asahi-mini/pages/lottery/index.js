@@ -1,8 +1,11 @@
 // pages/lottery/index.js
 const app = getApp()
+
 let events = {
   start () {
-    wx.navigateTo({ url: '/pages/lottery/result' })
+    // wx.navigateTo({ url: '/pages/lottery/result' })
+    let userCode = app.globalData.userInfo.userCode
+    app.post('getToken', { userCode: '2e999e0990064b6585fd2a104cc222ac' })
   },
   changeRuleVisible () {
     this.setData({ ruleShow: !this.data.ruleShow })

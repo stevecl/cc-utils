@@ -121,20 +121,7 @@ Page({
    */
   onLoad: async function (options) {
     this.getQuestionList()
-    var WxParse = require('../../wxParse/wxParse');
-    let ruleText = await app.getConfigData('asahi.system.ccg')
-    ruleText = ruleText&&JSON.parse(ruleText)
-    this.setData({
-      ruleText
-    })
-    var that = this;
-    // 格式：WxParse.wxParse(参数1, 参数2, 参数3, 参数4, 参数5);
-    // 参数说明：
-    // * 参数1.bindName绑定的数据名(必填)
-    // * 参数2.type可以为html或者md(必填)
-    // * 参数3.data为传入的具体数据(必填)
-    // * 参数4.target为Page对象,一般为this(必填)
-    // * 参数5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-    WxParse.wxParse('ruleText', 'html', ruleText, that, 5);
+    await app.getRuleText("asahi.system.ccg")
+    this.setData({ruleText:app.globalData.ruleText.nodes})
   }
 })
