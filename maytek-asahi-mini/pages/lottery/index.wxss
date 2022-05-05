@@ -37,12 +37,6 @@
   box-sizing: border-box;
 }
 
-#canvas {
-  width: 100%;
-  height: 100%;
-  /* display: unset; */
-}
-
 .dial .bg {
   position: absolute;
   /* z-index: 2; */
@@ -61,6 +55,17 @@
   position: relative;
   width: 444rpx;
   height: 444rpx;
+}
+
+.dial_wrap_content image {
+  width: 100%;
+  height: 100%;
+}
+
+.dial_wrap_content .price_1 {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* footer */

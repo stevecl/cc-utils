@@ -1,15 +1,54 @@
 // pages/lottery/index.js
 const app = getApp()
 
+// 旋转一圈时间 、 计时刻度
+const CIRCLETIME = 600, ONETIME = 100 
+let CURRENTROTATETIME = 0 // 动画已开始时间
+let ROTATEENDTIME = null // 动画结束时间
+let rotateTask = null, timerTask = null 
+
 let events = {
   start () {
+    console.log('start')
+    this.startRotate()
+    rotateTask = setInterval(() => {
+      this.startRotate()
+    }, CIRCLETIME)
     // wx.navigateTo({ url: '/pages/lottery/result' })
-    let userCode = app.globalData.userInfo.userCode
-    app.post('getToken', { userCode: '2e999e0990064b6585fd2a104cc222ac' })
+    // let userCode = app.globalData.userInfo.userCode
+    // app.post('getToken', { userCode: '2e999e0990064b6585fd2a104cc222ac' })
   },
+
+  startRotate (index = 0, timingFunction = 'linear') {
+    if (!timerTask) {
+      timerTask = setInterval(() => {
+        CURRENTROTATETIME += 100
+        this.setData({
+          currentIndex: CURRENTROTATETIME % 600 / 100
+        })
+        if (ROTATEENDTIME && CURRENTROTATETIME >= ROTATEENDTIME) { // 动画结束时间
+          clearInterval(timerTask)
+          timerTask = null
+        }
+      }, 100)
+    }
+    ROTATEENDTIME = index ? CURRENTROTATETIME + 100 * index : null // 动画结束时间
+    this.data.rotateDeg += 360 + 60 * index
+    var animation = wx.createAnimation({ duration: CIRCLETIME, timingFunction });
+    animation.rotateZ(this.data.rotateDeg).step()
+    //设置动画
+    this.setData({
+      rotate: animation.export()
+    })
+  },
+
   changeRuleVisible () {
     this.setData({ ruleShow: !this.data.ruleShow })
   },
+
+  endHandle () {
+    console.log('endHandle')
+  }
 }
 
 Page({
@@ -19,7 +58,10 @@ Page({
    */
   data: {
     ruleShow: false,
-    ruleText: ''
+    ruleText: '',
+    rotate: null,
+    rotateDeg: 0, // animation 旋转角度
+    currentIndex: 0, // 当前高亮奖品
   },
 
   /**
@@ -27,56 +69,6 @@ Page({
    */
   onLoad(options) {
     // app.post('http://192.168.50.149/dev-api/user/userLogin/getConfigCache')
-    wx.createSelectorQuery()
-      .select('#canvas')
-      .fields({ node: true, size: true })
-      .exec(async (res) => {     //async 和 await 成对出现
-        const canvas = res[0].node;
-        const context = canvas.getContext('2d');
-        const dpr = wx.getSystemInfoSync().pixelRatio
-        canvas.width = res[0].width * dpr
-        canvas.height = res[0].height * dpr
-        // context.scale(dpr, dpr)
-        const circle = {
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            radius: 180
-        }
-        console.log('ctx', context, circle)
-        // canvas.setFontSize(40)
-        // 矩形pink和矩形orange之间相隔20px
-        // context.translate(200 + Math.cos(60) * 50, 200 + Math.sin(60) * 100);
-        // context.rotate(30);
-        context.fillStyle = "white"
-				context.font="26px sans-serif"
-        context.fillText("撒大声地", circle.x, circle.y);
-        // return
-        // 1.6 0 3.2
-        let string = '撒大程序没能力肯定积分克里斯多夫',
-        startAngle = Math.PI*2+Math.PI/2, endAngle = Math.PI/8+Math.PI/2,  angle = 4.8, index = 0, character = '',
-        angleDecrement = (startAngle - endAngle) / (40 - 1)
-        console.log('angleDecrement', angleDecrement)
-        let radius = circle.radius
-
-        while(index < string.length){
-          //获取传入的字符串的每个字符
-          character = string.charAt(index);
-          context.save();
-          context.beginPath();
-          //位移到每个字符的指定位置
-          context.translate(circle.x+Math.cos(angle)*radius,circle.y - Math.sin(angle)*radius);
-          console.log('angle', angle)
-
-          //旋转坐标系到每个字符应该达到到角度
-          context.rotate(Math.PI/2 - angle);
-          context.fillText(character,0,0);
-          context.strokeText(character,0,0);
-          //角度递减
-          angle -= angleDecrement;
-          index++;
-          context.restore();
-        }
-      })
   },
 
   /**

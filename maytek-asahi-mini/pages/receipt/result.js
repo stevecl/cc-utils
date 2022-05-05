@@ -2,13 +2,21 @@
 import { getUrl } from '../../https/index'
 const app = getApp()
 
-Page({
+let methods = {
+  destroyLoading () {
+    this.data.timerTask && clearInterval(this.data.timerTask)
+  }
+}
 
+Page({
+  ...methods,
   /**
    * 页面的初始数据
    */
   data: {
     status: 'waiting', // success fail
+    rotate: null,
+    timerTask: null
   },
 
   clickHandle () {
@@ -26,11 +34,18 @@ Page({
     const eventChannel = this.getOpenerEventChannel()
     // eventChannel.emit('someEvent', {data: 'test'});
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on('acceptDatas', data => {
-      this.init(data)
-    })
-    var animation = wx.createAnimation({ duration: 500, timingFunction: 'ease' });
-
+    // eventChannel.on('acceptDatas', data => {
+    //   this.init(data)
+    // })
+    var animation = wx.createAnimation({ duration: 1000, timingFunction: 'linear' });
+    let num = 360
+    animation.rotateZ(num).step()
+    this.setData({ rotate: animation.export() })
+    this.data.timerTask = setInterval(() => {
+      num += 360
+      animation.rotateZ(num).step()
+      this.setData({ rotate: animation.export() })
+    }, 1000)
   },
 
   init (params) {
@@ -77,7 +92,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    this.destroyLoading()
   },
 
   /**
