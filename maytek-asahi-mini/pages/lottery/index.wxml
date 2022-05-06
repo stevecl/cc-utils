@@ -11,7 +11,7 @@
     <image class="bg" src="./images/bg-box.png" alt=""/>
     <view class="dial_wrap">
       <image class="bg" src="./images/circle.png"></image>
-      <image class="bg" src="./images/sanjiaoxing.png" animation="{{rotate}}" animationend="{{endHandle}}"></image>
+      <image class="bg" src="./images/sanjiaoxing.png" animation="{{rotate}}" animationend="{{endHandle}}" bindtransitionend="end"></image>
       <view class="dial_wrap_content">
         <image class="bg" src="./images/circle_red.png"></image>
         <image class="bg" src="./images/small.png"></image>

@@ -5,41 +5,58 @@ const app = getApp()
 const CIRCLETIME = 600, ONETIME = 100 
 let CURRENTROTATETIME = 0 // 动画已开始时间
 let ROTATEENDTIME = null // 动画结束时间
-let rotateTask = null, timerTask = null 
+let rotateTask = null, timerTask = null, rotateStatus = 'start' // start end index
 
 let events = {
   start () {
-    console.log('start')
+    rotateStatus = 'start'
     this.startRotate()
-    rotateTask = setInterval(() => {
-      this.startRotate()
-    }, CIRCLETIME)
+    setTimeout(() => {
+      rotateStatus = 0
+    }, 5000)
+    // ROTATEENDTIME = index ? CURRENTROTATETIME + 100 * index : null // 动画结束时间
     // wx.navigateTo({ url: '/pages/lottery/result' })
     // let userCode = app.globalData.userInfo.userCode
     // app.post('getToken', { userCode: '2e999e0990064b6585fd2a104cc222ac' })
   },
 
+  startCounting () {
+    timerTask = setInterval(() => {
+      CURRENTROTATETIME += 100
+      this.setData({ currentIndex: CURRENTROTATETIME % 600 / 100 })
+    }, 100)
+  },
+
+  endCounting () {
+    clearInterval(timerTask)
+    timerTask = null
+  },
+
   startRotate (index = 0, timingFunction = 'linear') {
-    if (!timerTask) {
-      timerTask = setInterval(() => {
-        CURRENTROTATETIME += 100
-        this.setData({
-          currentIndex: CURRENTROTATETIME % 600 / 100
-        })
-        if (ROTATEENDTIME && CURRENTROTATETIME >= ROTATEENDTIME) { // 动画结束时间
-          clearInterval(timerTask)
-          timerTask = null
-        }
-      }, 100)
-    }
-    ROTATEENDTIME = index ? CURRENTROTATETIME + 100 * index : null // 动画结束时间
+    this.startCounting()
     this.data.rotateDeg += 360 + 60 * index
-    var animation = wx.createAnimation({ duration: CIRCLETIME, timingFunction });
+    let duration = CIRCLETIME + CIRCLETIME / 6 * index
+    var animation = wx.createAnimation({ duration, timingFunction });
     animation.rotateZ(this.data.rotateDeg).step()
-    //设置动画
-    this.setData({
-      rotate: animation.export()
-    })
+    this.setData({ rotate: animation.export() })
+  },
+
+  end () {
+    this.endCounting()
+    if (typeof rotateStatus === 'number') {
+      this.startRotate(rotateStatus, 'ease-out')
+      rotateStatus = 'end'
+    } else if (rotateStatus === 'start') {
+      this.startRotate()
+    }
+    console.log('end', rotateStatus,CURRENTROTATETIME)
+  },
+
+  endRotate () {
+    if (rotateTask) {
+      clearInterval(rotateTask)
+      rotateTask = null
+    }
   },
 
   changeRuleVisible () {
