@@ -1,21 +1,31 @@
-# ssss
+## 介绍
 
-> A Vue.js project
+一个简单的js工具库
 
-## Build Setup
+## 功能
 
-``` bash
-# install dependencies
-npm install
+- 常用工具函数
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 源码目录
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+.
+├── doc
+├── example
+├── src
+└── README.md   
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## npm 安装使用
+
+`npm install cc-utils`
+
+## 文档
+  lodash 一个一致性、模块化、高性能的 JavaScript 实用工具库。
+  ramda 一个很重要的库，提供了许多有用的方法，每个 JavaScript 程序员都应该掌握这个工具
+
+  day.js 一个轻量的处理时间和日期的 JavaScript 库，和 Moment.js 的 API 设计保持完全一样, 体积只有2kb
+
+  big.js 一个小型，快速的JavaScript库，用于任意精度的十进制算术运算
+
+  qs 一个 url参数转化 (parse和stringify)的轻量级js库
