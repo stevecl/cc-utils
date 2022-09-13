@@ -1,7 +1,7 @@
 {
-  "name": "cc-utils",
-  "version": "1.0.0",
-  "description": "一个简单的js工具库",
+  "name": "commonjs-cc",
+  "version": "1.0.1",
+  "description": "一个简单的js工具库.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,7 @@
   "keywords": [
     "cc",
     "utils",
+    "common",
     "js"
   ],
   "author": "cc",
