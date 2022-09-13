@@ -1,9 +1,9 @@
 // 校验身份证号码
-export const checkCardNo = (value) => /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value);
+export const checkCardNo = value => /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value);
 // 校验是否为邮箱地址
-export const isEmail = (value) => /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value);
+export const isEmail = value => /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(value);
 // 校验是否为中国大陆手机号
-export const isTel = (value) => /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(value.toString());
+export const isTel = value => /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(value.toString());
 
 // 判断是移动还是PC设备
 export const isMobile = () => {
@@ -14,12 +14,12 @@ export const isMobile = () => {
 }
 
 // 判断是否是苹果还是安卓移动设备
-export const isAppleMobileDevice = () => {
+export const isIOS = () => {
   let reg = /iphone|ipod|ipad|Macintosh/i;
   return reg.test(navigator.userAgent.toLowerCase());
 }
 // 判断是否是安卓移动设备
-export const isAndroidMobileDevice = () => {
+export const isAndroid = () => {
   return /android/i.test(navigator.userAgent.toLowerCase());
 }
 // 判断是Windows还是Mac系统

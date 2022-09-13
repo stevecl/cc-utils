@@ -19,7 +19,7 @@ export const smoothScroll = (element) => {
 };
 
 // 判断元素是否在可视区域内
-function isElView(el) { 
+export function isElView(el) { 
   var top = el.getBoundingClientRect().top // 元素顶端到可见区域顶端的距离 
   var bottom = el.getBoundingClientRect().bottom // 元素底部端到可见区域顶端的距离 
   var se = document.documentElement.clientHeight // 浏览器可见区域高度。 

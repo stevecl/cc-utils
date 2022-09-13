@@ -4,7 +4,7 @@
  * @param {Number} arg2 加数
  * @return {Number} 和
  */
- export function ccAdd(arg1, arg2) {
+ export function Madd(arg1, arg2) {
   let r1, r2, m;
   try {
       r1 = arg1.toString().split(".")[1].length;
@@ -25,7 +25,7 @@
 * @param {Number} arg2 减数 
 * @return {Number} 差
 */
-export function ccSub(arg1, arg2) {
+export function Msub(arg1, arg2) {
   let r1, r2, m;
   try {
       r1 = arg1.toString().split(".")[1].length;
@@ -46,7 +46,7 @@ export function ccSub(arg1, arg2) {
 * @param {Number} arg2 因数 
 * @return {Number} 积
 */
-export function ccMul(arg1, arg2) {
+export function Mmul(arg1, arg2) {
   let m = 0,
       s1 = arg1.toString(),
       s2 = arg2.toString();
@@ -64,7 +64,7 @@ export function ccMul(arg1, arg2) {
 * @param {Number} arg2 除数 
 * @return {Number} 商
 */
-export function ccDiv(arg1, arg2) {
+export function Mdiv(arg1, arg2) {
   let t1 = 0,
       t2 = 0,
       r1, r2;

@@ -22,6 +22,34 @@ window.addEventListener('pageshow', (e)=>{
     }
 }, false);
 
+/**
+ * 设置页面标题
+ * @method setTitle
+ * @param {string} title 标题内容
+ */
+ function setTitle(title) {
+    if (title) {
+        let u = navigator.userAgent;
+        let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+        let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isAndroid) {
+            document.title = title;
+        } else if (isiOS) {
+            let i = document.createElement('iframe');
+            i.src = '/static/favicon.ico';
+            i.style.display = 'none';
+            document.title = title;
+            i.onload = function () {
+                setTimeout(function () {
+                    i.remove();
+                }, 1);
+            };
+            document.body.appendChild(i);
+        }
+    }
+}
+
 export {
-    setRem
+    setRem,
+    setTitle
 }
