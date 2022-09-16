@@ -1,25 +1,27 @@
 {
   "name": "commonjs-cc",
-  "version": "1.0.1",
-  "description": "一个简单的js工具库.",
-  "main": "index.js",
+  "version": "1.0.3",
+  "description": "一个简单的js工具库",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevecl/cc-utils.git"
+    "url": "git+https://github.com/stevecl/commonjs-cc.git"
   },
   "keywords": [
     "cc",
-    "utils",
-    "common",
-    "js"
+    "js",
+    "common"
   ],
   "author": "cc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stevecl/cc-utils/issues"
+    "url": "https://github.com/stevecl/commonjs-cc/issues"
   },
-  "homepage": "https://github.com/stevecl/cc-utils#readme"
+  "homepage": "https://github.com/stevecl/commonjs-cc#readme"
 }
