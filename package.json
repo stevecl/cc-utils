@@ -1,6 +1,6 @@
 {
   "name": "commonjs-cc",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "一个简单的js工具库",
   "main": "src/index.js",
   "directories": {

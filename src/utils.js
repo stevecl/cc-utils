@@ -16,8 +16,7 @@ export const generateRandomHexColor = () => `#${Math.floor(Math.random() * 0xfff
 export const debounce = (fn, wait) => {
   let timer = null;
   return function () {
-    let context = this,
-      args = arguments;
+    let context = this, args = arguments;
     if (timer) {
       clearTimeout(timer);
       timer = null;
@@ -36,9 +35,7 @@ export const debounce = (fn, wait) => {
 export const throttle = (fn, delay) => {
   let curTime = Date.now();
   return function () {
-    let context = this,
-      args = arguments,
-      nowTime = Date.now();
+    let context = this, args = arguments, nowTime = Date.now();
     if (nowTime - curTime >= delay) {
       curTime = Date.now();
       return fn.apply(context, args);

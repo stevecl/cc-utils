@@ -7,14 +7,18 @@
   <title>test page</title>
 </head>
 <body>
-  
+  <div id="test">4234</div>
 </body>
 
 <script type="module">
-  import { setRem, uuid, getUrlParams } from '../src/index.js'
+  import { setRem, uuid, getUrlParams, throttle } from '../src/index.js'
   // import test from '../src/index.js'
   // let test = require('../src/index.js')
   setRem()
+  console.log()
+  document.querySelector('#test').addEventListener('click', throttle(function() {
+    console.log(1222)
+  }, 2000))
   // console.log('222,', deleteUrlParamByKey('b'))
 </script>
 </html>
