@@ -5,10 +5,14 @@ export const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5)
 // 复制到剪切板
 export const copyToClipboard = (text) => navigator.clipboard?.writeText && navigator.clipboard.writeText(text)
 // 生成随机颜色
-export const generateRandomHexColor = () => `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+export const randomHexColor = () => `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+// 将rgb颜色灰度化（基于光感加权平均）
+export const gray = (r, g, b) => 0.2126 * r + 0.7152 * g + 0.0722 * b;
+// 去掉字符串中的元素标记
+export const removeTag = (fragment) => new DOMParser().parseFromString(frameElement, 'text/html').body.textContent || ''
 
 /**
- * 防抖
+ * @function 防抖
  * @param { Function } fn 
  * @param { Number } wait 
  * @returns 
@@ -27,7 +31,7 @@ export const debounce = (fn, wait) => {
   };
 }
 /**
- * 节流
+ * @function 节流
  * @param { Function } fn 
  * @param { Number } delay 
  * @returns 
@@ -43,7 +47,7 @@ export const throttle = (fn, delay) => {
   };
 }
 /**
- * 数据类型判断
+ * @function 数据类型判断
  * @param { * } value 
  * @returns { string } 对应数据类型
  */
@@ -64,7 +68,7 @@ export const getType = (value) => {
 }
 
 /**
- * 深拷贝
+ * @function 深拷贝
  * @param {*} obj 
  * @param {*} hash 
  * @returns 
@@ -99,7 +103,7 @@ export const deepClone = (obj, hash = new WeakMap()) => {
 }
 
 /**
- * 获取uuid字符串
+ * @function 获取uuid字符串
  * @param { Number } len uuid长度
  * @return { String } uuid
  */

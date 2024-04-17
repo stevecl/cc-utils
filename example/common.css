@@ -1,113 +1,123 @@
+/* flex */
+.flex {
+  display: flex;
+}
+
+.flex-none {
+  display: unset;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 /* 浮动 */
 .left {
-    float: left;
+  float: left;
 }
 
 .right {
-    float: right;
+  float: right;
 }
 
 /* 清除浮动 */
 .clearfix {
-    zoom: 1;
-    _zoom: 1;
+  zoom: 1;
+  _zoom: 1;
 }
 
 .clearfix::after {
-    clear: both;
-    content: ' ';
-    display: block;
-    width: 0;
-    height: 0;
-    visibility: hidden;
+  clear: both;
+  content: ' ';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }
 
-
+/* 显隐 */
 .hide {
-    display: none !important;
+  display: none !important;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 /* 超出部分隐藏，并显示.... */
 .text-overflow {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 强制换行 */
 .text-force-wrap {
-    word-break: break-all;
-    white-space: pre-wrap;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 /* 强制不换行 */
 .text-not-wrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 /* 竖屏 */
 @media (orientation: portrait) {
-    .main-wrapper {
-        display: block;
-    }
-    .landscape {
-        display: none;
-    }
+  .main-wrapper {
+    display: block;
+  }
+
+  .landscape {
+    display: none;
+  }
 }
 
 
 /* 横屏 */
 @media (orientation: landscape) {
-    .main-wrapper {
-        display: none;
-    }
-    .landscape {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        display: -webkit-box;
-        -webkit-box-orient: horizontal;
-        -webkit-box-pack: center;
-        -webkit-box-align: center;
-        background-color: #141A2E;
-    }
-}
+  .main-wrapper {
+    display: none;
+  }
 
- ::-webkit-scrollbar {
-	width: 10px;
-	background-color: #ccc;
-}
-::-webkit-scrollbar-track {
-	background-color: #ccc;
-	border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-	background-color: rgb(255, 255, 255);
-	/* background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(rgb(77, 156, 65)), color-stop(0.6, rgb(84, 222, 93)), to(rgb(25, 145, 29))); */
-	border-radius: 10px;
-}
-
-
-/* 1px 解决方案,此示例是，底部1px边框
-   ========================================================================== */
-/* .border-bottom-1 {
+  .landscape {
+    width: 100%;
+    height: 100%;
     position: relative;
-    &::before {
-        content: ' ';
-        display: block;
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, #fff 50%, rgba(0, 0, 0, .15) 50%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #fff), color-stop(50%, rgba(0, 0, 0, .15)));
-        background: -webkit-linear-gradient(top, #fff 50%, rgba(0, 0, 0, .15) 50%);
-    }
-} */
-/* end 1px 解决方案,此示例是，底部1px边框
-   ========================================================================== */
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background-color: #141A2E;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+  /* background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(rgb(77, 156, 65)), color-stop(0.6, rgb(84, 222, 93)), to(rgb(25, 145, 29))); */
+  border-radius: 10px;
+}
+
+/* 少见好用样式 */
+::first-letter {
+  text-transform: uppercase;
+}

@@ -1,5 +1,5 @@
 /**
- * 获取URL参数列表
+ * @function 获取URL参数列表
  * @returns { Object }
  */
 export const getUrlParams = (isHash = false) => {
@@ -17,7 +17,7 @@ export const getUrlParams = (isHash = false) => {
 };
 
 /**
- * 键值对拼接成URL参数
+ * @function 键值对拼接成URL参数
  * @param {*} obj 
  * @returns 
  */
